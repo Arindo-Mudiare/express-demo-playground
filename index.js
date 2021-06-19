@@ -10,17 +10,13 @@ app.listen(PORT, () => {
     console.log(`app listening at http://localhost:${PORT}`)
   })
 
-const friends = [
-    {
-        id: 0,
-        name: 'Albert Einstein'
-    },
-    {
-        id: 1,
-        name: 'Sir Isaac Newton'
-    },
-];
 
+
+app.use(express.json());
+
+app.post('/friends', friendsController.postFriend);
+app.get('/friends', friendsController.getFriends);
+app.get('/friends/:friendId', friendsController.getFriend);
 app.get('/messages', messagesController.getMessages);
 app.post('/messages', messagesController.postMessage);
 

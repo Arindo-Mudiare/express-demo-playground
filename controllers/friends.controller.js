@@ -1,3 +1,14 @@
+const friends = [
+    {
+        id: 0,
+        name: 'Albert Einstein'
+    },
+    {
+        id: 1,
+        name: 'Sir Isaac Newton'
+    },
+];
+
 function postFriend(req, res) {
     if (!req.body.name) {
         return res.status(400).json({
@@ -29,4 +40,10 @@ function getFriend(req, res) {
             error: 'Friend does not exist'
         });
     }
+}
+
+module.exports = {
+    postFriend,
+    getFriends,
+    getFriend
 }
